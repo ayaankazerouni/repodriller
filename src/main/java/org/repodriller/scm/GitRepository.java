@@ -420,6 +420,7 @@ public class GitRepository implements SCM {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         try (DiffFormatter df2 = new DiffFormatter(out)) {
             String diffText;
+            setContext(df2);
             df2.setRepository(repo);
 			df2.format(diff);
 			diffText = out.toString("UTF-8");
